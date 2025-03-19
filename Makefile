@@ -7,8 +7,6 @@ LIBFT = $(LIBFT_DIR)/libft.a
 SRC = src/burning_ship.c \
 		src/init.c \
 		src/julia.c \
-		src/init.c \
-		src/julia.c \
 		src/mandelbrot.c \
 		src/render.c \
 		src/utils.c \

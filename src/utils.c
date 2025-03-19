@@ -6,7 +6,7 @@
 /*   By: gbodur <gbodur@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 23:33:56 by gbodur            #+#    #+#             */
-/*   Updated: 2025/03/18 21:43:04 by gbodur           ###   ########.fr       */
+/*   Updated: 2025/03/19 16:00:22 by gbodur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,19 @@ void	calc_coords(t_fractal *fract, int x, int y, double *coords)
 
 int	calc_iteration(t_fractal *fract, double real, double imag)
 {
+	t_julia julia;
+	
 	if (fract->type == TYPE_MANDELBROT)
 		return (compute_mandelbrot(real, imag, fract->max_iter));
 	else if (fract->type == TYPE_JULIA)
-		return (compute_julia(real, imag, fract->param_real,
-				fract->param_imag, fract->max_iter));
+	{
+		julia.x = real;
+		julia.y = imag;
+		julia.cr = fract->param_real;
+		julia.ci = fract->param_imag;
+		julia.limit = fract->max_iter;
+		return (compute_julia(&julia));
+	}
 	else if (fract->type == TYPE_BURNING_SHIP)
 		return (compute_burning_ship(real, imag, fract->max_iter));
 	return (0);

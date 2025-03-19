@@ -6,7 +6,7 @@
 /*   By: gbodur <gbodur@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:22:17 by gbodur            #+#    #+#             */
-/*   Updated: 2025/03/18 21:44:21 by gbodur           ###   ########.fr       */
+/*   Updated: 2025/03/19 16:39:52 by gbodur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,23 @@
 # define TYPE_MANDELBROT 0
 # define TYPE_JULIA 1
 # define TYPE_BURNING_SHIP 2
+
+# define ESC 65307
+# define KEY_R 114
+# define KEY_C 99
+# define KEY_F 102
+# define PLUS 65451
+# define PLUS_ALT 61
+# define MINUS 65453
+# define MINUS_ALT 45
+# define LEFT 65361
+# define UP 65362
+# define RIGHT 65663
+# define DOWN 65364
+# define MOUSE_LEFT 1
+# define MOUSE_RIGHT 3
+# define MOUSE_SCROLL_UP 4
+# define MOUSE_SCROLL_DOWN 5
 
 typedef struct s_canvas
 {
@@ -85,6 +102,7 @@ void    cycle_fractal_type(t_fractal *fract);
 
 //events.c
 int     handle_keypress(int key, t_fractal *fract);
+void    handle_arrow_keys(int key, t_fractal *fract);
 int     handle_mouse_button(int button, int x, int y, t_fractal *fract);
 int     handle_mouse_move(int x, int y, t_fractal *fract);
 int     handle_close(t_fractal *fract);
