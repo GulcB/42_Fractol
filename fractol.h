@@ -6,7 +6,7 @@
 /*   By: gbodur <gbodur@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:22:17 by gbodur            #+#    #+#             */
-/*   Updated: 2025/03/19 16:39:52 by gbodur           ###   ########.fr       */
+/*   Updated: 2025/03/19 18:44:08 by gbodur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@
 # include <math.h>
 # include <unistd.h>
 # include "./libft/libft.h"
+# include "./ft_printf/ft_printf.h"
 # include "./minilibx-linux/mlx.h"
 
-# define WINDOW_WIDTH 1000
-# define WINDOW_HEIGHT 800
+# define WINDOW_WIDTH 600
+# define WINDOW_HEIGHT 400
 # define WINDOW_TITLE "Fractal Explorer"
 
 # define TYPE_MANDELBROT 0
@@ -92,47 +93,45 @@ typedef struct s_fractal
 	int         drag_start_y;
 }				t_fractal;
 
-//burning_ship.c
 int     compute_burning_ship(double x, double y, int limit);
 
-//color.c
+int		color_scheme_0(double ratio);
+int		color_scheme_1(double ratio);
+int		color_scheme_2(int iter);
+int		color_scheme_3(double ratio);
+int		color_scheme_4(double ratio);
+
 int     get_color(int iter, int max_iter, int color_scheme);
 void    cycle_color_scheme(t_fractal *fract);
 void    cycle_fractal_type(t_fractal *fract);
 
-//events.c
 int     handle_keypress(int key, t_fractal *fract);
 void    handle_arrow_keys(int key, t_fractal *fract);
 int     handle_mouse_button(int button, int x, int y, t_fractal *fract);
 int     handle_mouse_move(int x, int y, t_fractal *fract);
 int     handle_close(t_fractal *fract);
 
-//init.
 void    init_fractal(t_fractal *fract, int type);
 void    setup_window(t_fractal *fract);
 void    setup_canvas(t_fractal *fract);
 void    reset_view(t_fractal *fract);
 
-//julia.c
 int     compute_julia(t_julia *julia);
 
-//mandelbrot.c
 int     compute_mandelbrot(double x, double y, int limit);
 
-//utils.c
+void    render_fractal(t_fractal *fract);
+void    calc_mouse_coords(t_fractal *fract, int x, int y, double *coords);
+void    zoom_view(t_fractal *fract, int x, int y, double factor);
+void    pan_view(t_fractal *fract, double dx, double dy);
+
 void    draw_pixel(t_canvas *canvas, int x, int y, int color);
 double  map_range(t_map *map);
 void    update_display(t_fractal *fract);
 void    calc_coords(t_fractal *fract, int x, int y, double *coords);
 int     calc_iteration(t_fractal *fract, double real, double imag);
 
-//render.c
-void    render_fractal(t_fractal *fract);
-void    calc_mouse_coords(t_fractal *fract, int x, int y, double *coords);
-void    zoom_view(t_fractal *fract, int x, int y, double factor);
-void    pan_view(t_fractal *fract, double dx, double dy);
 
-//main.c
 void    show_usage(void);
 
 #endif

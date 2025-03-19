@@ -6,7 +6,7 @@
 /*   By: gbodur <gbodur@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 23:33:24 by gbodur            #+#    #+#             */
-/*   Updated: 2025/03/19 16:45:38 by gbodur           ###   ########.fr       */
+/*   Updated: 2025/03/19 19:02:13 by gbodur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ int	handle_close(t_fractal *fract)
 {
     mlx_destroy_image(fract->mlx, fract->canvas.img_ptr);
 	mlx_destroy_window(fract->mlx, fract->win);
+	mlx_destroy_display(fract->mlx);
+	free(fract->mlx);
 	exit(0);
 	return (0);
 }
