@@ -6,7 +6,7 @@
 /*   By: gbodur <gbodur@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:23:42 by gbodur            #+#    #+#             */
-/*   Updated: 2025/03/19 18:56:39 by gbodur           ###   ########.fr       */
+/*   Updated: 2025/03/19 20:51:21 by gbodur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ int	main(int ac, char **av)
 	}
 	render_fractal(&finder);
 	mlx_key_hook(finder.win, handle_keypress, &finder);
-	mlx_mouse_hook(finder.win, handle_mouse_button, &finder);
+		mlx_mouse_hook(finder.win, handle_mouse_button, &finder);
+	mlx_hook(finder.win, 5, 1L << 3, handle_mouse_release, &finder);
 	mlx_hook(finder.win, 6, 1L << 6, handle_mouse_move, &finder);
 	mlx_hook(finder.win, 17, 0, handle_close, &finder);
 	mlx_loop(finder.mlx);

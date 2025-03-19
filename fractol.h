@@ -6,7 +6,7 @@
 /*   By: gbodur <gbodur@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:22:17 by gbodur            #+#    #+#             */
-/*   Updated: 2025/03/19 18:44:08 by gbodur           ###   ########.fr       */
+/*   Updated: 2025/03/19 20:51:57 by gbodur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ void    cycle_fractal_type(t_fractal *fract);
 int     handle_keypress(int key, t_fractal *fract);
 void    handle_arrow_keys(int key, t_fractal *fract);
 int     handle_mouse_button(int button, int x, int y, t_fractal *fract);
+int		handle_mouse_release(int button, int x, int y, t_fractal *fract);
 int     handle_mouse_move(int x, int y, t_fractal *fract);
 int     handle_close(t_fractal *fract);
 

@@ -6,7 +6,7 @@
 /*   By: gbodur <gbodur@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 23:33:24 by gbodur            #+#    #+#             */
-/*   Updated: 2025/03/19 19:02:13 by gbodur           ###   ########.fr       */
+/*   Updated: 2025/03/19 20:48:51 by gbodur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,15 @@ int	handle_mouse_button(int button, int x, int y, t_fractal *fract)
 	return (0);
 }
 
+int	handle_mouse_release(int button, int x, int y, t_fractal *fract)
+{
+	(void)button;
+	(void)x;
+	(void)y;
+	
+	fract->is_dragging = 0;
+	return (0);
+}
 
 int	handle_mouse_move(int x, int y, t_fractal *fract)
 {

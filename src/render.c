@@ -6,7 +6,7 @@
 /*   By: gbodur <gbodur@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 20:00:05 by gbodur            #+#    #+#             */
-/*   Updated: 2025/03/19 18:56:34 by gbodur           ###   ########.fr       */
+/*   Updated: 2025/03/19 20:46:38 by gbodur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,15 @@ void	calc_mouse_coords(t_fractal *fract, int x, int y, double *coords)
 void	zoom_view(t_fractal *fract, int x, int y, double factor)
 {
 	double	mouse_coords[2];
+	double	mouse_real;
+	double	mouse_imag;
 
 	calc_mouse_coords(fract, x, y, mouse_coords);
-	fract->center_x = mouse_coords[0] + (fract->center_x - mouse_coords[0])
-		/ factor;
-	fract->center_y = mouse_coords[1] + (fract->center_y - mouse_coords[1])
-		/ factor;
+	mouse_real = mouse_coords[0];
+	mouse_imag = mouse_coords[1];
 	fract->zoom_level *= factor;
+	fract->center_x = mouse_real - (mouse_real - fract->center_x) / factor;
+	fract->center_y = mouse_imag - (mouse_imag - fract->center_y) / factor;
 	render_fractal(fract);
 }
 
@@ -76,6 +78,6 @@ void	pan_view(t_fractal *fract, double dx, double dy)
 	delta_real = dx * (fract->scale_factor / fract->zoom_level) / WINDOW_WIDTH;
 	delta_img = dy * (fract->scale_factor / fract->zoom_level) / WINDOW_HEIGHT;
 	fract->center_x -= delta_real;
-	fract->center_x += delta_img;
+	fract->center_y += delta_img;
 	render_fractal(fract);
 }
