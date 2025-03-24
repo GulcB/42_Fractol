@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   burning_ship_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbodur <gbodur@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/23 14:16:16 by gbodur            #+#    #+#             */
-/*   Updated: 2025/03/23 14:31:33 by gbodur           ###   ########.fr       */
+/*   Created: 2025/03/23 13:00:00 by gbodur            #+#    #+#             */
+/*   Updated: 2025/03/23 13:00:00 by gbodur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../includes/fractol_bonus.h"
 
-int	compute_mandelbrot(double real, double imag, int max_iter)
+int	compute_burning_ship_bonus(double real, double imag, int max_iter)
 {
 	t_complex	z;
 	t_complex	c;
@@ -29,8 +29,8 @@ int	compute_mandelbrot(double real, double imag, int max_iter)
 		if ((z.real * z.real + z.imag * z.imag) > 4.0)
 			break ;
 		tmp = z.real * z.real - z.imag * z.imag + c.real;
-		z.imag = 2.0 * z.real * z.imag + c.imag;
-		z.real = tmp;
+		z.imag = fabs(2.0 * z.real * z.imag) + c.imag;
+		z.real = fabs(tmp);
 		iter++;
 	}
 	return (iter);

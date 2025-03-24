@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   mandelbrot_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbodur <gbodur@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/23 14:16:16 by gbodur            #+#    #+#             */
-/*   Updated: 2025/03/23 14:31:33 by gbodur           ###   ########.fr       */
+/*   Created: 2025/03/23 16:11:51 by gbodur            #+#    #+#             */
+/*   Updated: 2025/03/23 16:12:27 by gbodur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../includes/fractol_bonus.h"
 
-int	compute_mandelbrot(double real, double imag, int max_iter)
+int	compute_mandelbrot_bonus(double real, double imag, int max_iter)
 {
 	t_complex	z;
 	t_complex	c;

@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   view.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbodur <gbodur@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/23 14:16:16 by gbodur            #+#    #+#             */
-/*   Updated: 2025/03/23 14:31:33 by gbodur           ###   ########.fr       */
+/*   Created: 2025/03/23 14:26:41 by gbodur            #+#    #+#             */
+/*   Updated: 2025/03/24 13:17:55 by gbodur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int	compute_mandelbrot(double real, double imag, int max_iter)
+void	zoom_view(t_fractal *fract, int x, int y, double factor)
 {
-	t_complex	z;
-	t_complex	c;
-	double		tmp;
-	int			iter;
+	double	old_zoom;
 
-	z.real = 0.0;
-	z.imag = 0.0;
-	c.real = real;
-	c.imag = imag;
-	iter = 0;
-	while (iter < max_iter)
-	{
-		if ((z.real * z.real + z.imag * z.imag) > 4.0)
-			break ;
-		tmp = z.real * z.real - z.imag * z.imag + c.real;
-		z.imag = 2.0 * z.real * z.imag + c.imag;
-		z.real = tmp;
-		iter++;
-	}
-	return (iter);
+	(void)x;
+	(void)y;
+	old_zoom = fract->zoom;
+	fract->zoom *= factor;
+	fract->offset_x = fract->offset_x * old_zoom / fract->zoom;
+	fract->offset_y = fract->offset_y * old_zoom / fract->zoom;
+	render_fractal(fract);
 }
