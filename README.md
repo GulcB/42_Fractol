@@ -1,6 +1,8 @@
 # 🎨 Fract-ol: Fractal Exploration Engine
 
-![demo](https://github.com/user-attachments/assets/160fd23a-18ba-486d-8fd7-2aefc1b6696a)
+![demo]<img width="1760" height="1594" alt="mandelbrot" src="https://github.com/user-attachments/assets/4bce37f9-b6bd-4bb3-ad2d-7863ed53fc7d" />
+<img width="1710" height="848" alt="julia" src="https://github.com/user-attachments/assets/79787ef0-b772-42af-8687-cdebdd57c7ef" />
+<img width="1723" height="1005" alt="burning_ship" src="https://github.com/user-attachments/assets/3d87f7f3-b6e2-4ea1-ba94-911963515b52" />
 
 
 > **A high-performance fractal rendering engine built in C using the MiniLibX library.**
